@@ -2,17 +2,12 @@ import Head from "next/head";
 import Sobre from "./sobre";
 import Contato from "./contato";
 import Projetos from "./projetos";
+import MetaHead from "../components/Heade";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Construtora Engenharia XYZ</title>
-        <meta
-          name="description"
-          content="Projetos e obras com excelência em engenharia civil."
-        />
-      </Head>
+     <MetaHead />
 
       {/* Hero Section */}
       <section

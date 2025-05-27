@@ -1,6 +1,13 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -10,19 +17,27 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="flex space-x-6">
-          <Link href="#inicio">
-            <span className="text-gray-700 hover:text-blue-700 transition cursor-pointer">Início</span>
-          </Link>
-          <Link href="#sobre">
-            <span className="text-gray-700 hover:text-blue-700 transition cursor-pointer">Sobre</span>
-          </Link>
-          <Link href="#projetos">
-            <span className="text-gray-700 hover:text-blue-700 transition cursor-pointer">Projetos</span>
-          </Link>
-          <Link href="#contato">
-            <span className="text-gray-700 hover:text-blue-700 transition cursor-pointer">Contato</span>
-          </Link>
+        {/* Botão Mobile */}
+        <button
+          onClick={toggleMenu}
+          className="md:hidden text-blue-900 focus:outline-none"
+        >
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Menu */}
+        <nav
+          className={`${
+            menuOpen ? "flex" : "hidden"
+          } flex-col md:flex md:flex-row md:items-center md:space-x-6 absolute md:static bg-white md:bg-transparent left-0 top-full w-full md:w-auto px-6 md:px-0 py-4 md:py-0 shadow-md md:shadow-none`}
+        >
+          {["Início", "Sobre", "Projetos", "Contato"].map((item) => (
+            <Link key={item} href={`#${item.toLowerCase()}`}>
+              <span className="text-gray-700 hover:text-blue-700 transition cursor-pointer border-b-2 border-transparent hover:border-blue-700 pb-1 block text-lg md:text-base">
+                {item}
+              </span>
+            </Link>
+          ))}
         </nav>
       </div>
     </header>
