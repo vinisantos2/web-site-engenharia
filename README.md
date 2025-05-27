@@ -32,9 +32,9 @@ Website responsivo desenvolvido com **Next.js** para apresentar os serviços, pr
 | Página | Imagem |
 |--------|--------|
 | Login / Home | ![Home](./public/images/web-site-engenharia/home.png) |
-| Serviços | ![Serviços](./public/images/web-site-engenharia/servicos.png) |
+
 | Projetos | ![Projetos](./public/images/web-site-engenharia/projetos.png) |
-| Contato | ![Contato](./public/images/web-site-engenharia/contato.png) |
+
 
 ## 🚀 Como rodar o projeto localmente
 
